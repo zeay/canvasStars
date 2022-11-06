@@ -19,11 +19,15 @@ const randomColor = () => {
   const alphabate = ['A', 'B', 'C', 'D', 'E', 'F']
   const num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   const index= [alphabate, num];
+  let genratedColor = '#';
   const color = () => {
     let arr = index[Math.round(random.range(0, 1))];
     return arr[Math.round(random.range(0, arr.length-1))];
   }
-  return '#'+ color() + color() + color() + color() + color() + color();
+  for (let i = 0; i<6; i++) {
+    genratedColor += color();
+  }
+  return genratedColor;
 }
 
 const sketch = ({ context, width, height }) => {
